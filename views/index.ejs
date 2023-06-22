@@ -1,0 +1,71 @@
+<%- include ('partials/__head.ejs') -%>
+
+<body>
+
+  <!-- Navigation -->
+  <%- include ('partials/__nav.ejs') -%>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Clean Blog</h1>
+            <span class="subheading">{Alt yazı}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row" id="posts">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <% for (post of data) { %>
+          <div class="post-preview">
+            <a href="/post/<%= post._id %>">
+              <h2 class="post-title">
+                <%= post.title %> 
+              </h2>
+              <h3 class="post-subtitle">
+                <%= post.subtitle %> 
+              </h3>
+            </a>
+            <p class="post-meta">yazar
+              <a href="#"><%= post.author %></a>
+              - <%= new Date(post.date).toLocaleDateString('tr-TR', {year: 'numeric', month: 'short', day: 'numeric'}) %></p>
+          </div>
+          <hr>
+        <% } %>
+        
+        <!-- Pager -->
+        <div class="clearfix">
+          <% if (total > page * 5) { %> 
+            <a class="btn btn-primary float-right" href="/?page=<%= parseInt(page) + 1 %>#posts">Eski Gönderiler &rarr;</a>
+          <% } %>
+          <% if (page > 1) { %> 
+            <a class="btn btn-primary float-left" href="/?page=<%= parseInt(page) - 1 %>#posts">&larr; Yeni Gönderiler</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <%- include ('partials/__footer.ejs') -%>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

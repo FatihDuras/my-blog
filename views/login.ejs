@@ -1,0 +1,64 @@
+<%- include ('partials/__head.ejs') -%>
+
+<body>
+  <!-- Navigation -->
+  <%- include ('partials/__nav.ejs') -%>
+
+  <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Giriş Yap</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <% if (error) { %>
+         <div class="alert alert-danger" role="alert">
+          Kullanıcı adı veya şifre hatalı.
+         </div>
+        <% } %>
+        <form method="POST" action="/login" id="form">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Kullanıcı Adı</label>
+              <input type="text" class="form-control" placeholder="Kullanıcı Adı" id="name" name="name" required data-validation-required-message="Lütfen kullanıcı adını girin.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Şifre</label>
+              <input type="password" class="form-control" placeholder="Şifre" id="password" name="password" required data-validation-required-message="Lütfen şifrenizi girin.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Giriş Yap</button>
+          <a href="/register" class="btn btn-outline-secondary">Kayıt Ol</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  
+  <!-- Footer -->
+  <%- include ('partials/__footer.ejs') -%>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+</body>
+
+</html>

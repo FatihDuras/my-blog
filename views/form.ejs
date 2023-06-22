@@ -1,0 +1,81 @@
+<%- include ('partials/__head.ejs') -%>
+
+<body>
+
+  <!-- Navigation -->
+  <%- include ('partials/__nav.ejs') -%>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-sample-image.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Yeni Gönderi Ekle</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form method="POST" action="/add">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Başlık</label>
+              <input type="text" class="form-control" placeholder="Başlık" id="name" name="title" required data-validation-required-message="Please enter title.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Alt başlık</label>
+              <input type="text" class="form-control" placeholder="Alt Başlık" id="subname" name="subtitle" required data-validation-required-message="Please enter subtitle.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>İçerik</label>
+              <textarea rows="5" class="form-control" placeholder="İçerik" id="message" name="content" required data-validation-required-message="Please enter content."></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Yazar</label>
+              <input type="text" class="form-control" placeholder="Yazar" id="author" name="author" required data-validation-required-message="Please enter your name." value="<%= name  %>">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Yayınla</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <%- include ('partials/__footer.ejs') -%>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
